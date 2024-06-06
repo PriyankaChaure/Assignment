@@ -1,0 +1,61 @@
+﻿@model Curd_operations.Models.emp2
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>editdata</title>
+</head>
+<body>
+    <h2>Edit Employee Formation</h2>
+    <div> 
+        @using(Html.BeginForm())
+            {
+                <div>@Html.HiddenFor(p=>p.empid)</div>
+                <div>
+                    @Html.LabelFor(p=>p.empname)
+                    <div>
+                        @Html.EditorFor(p=>p.empname)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(p=>p.emailid)
+                    <div>
+                        @Html.EditorFor(p=>p.emailid)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(p=>p.address)
+                    <div>
+                        @Html.EditorFor(p=>p.address)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(p=>p.mobileno)
+                    <div>
+                        @Html.EditorFor(p=>p.mobileno)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(p=>p.salary)
+                    <div>@Html.EditorFor(p=>p.salary)</div>
+                </div>
+                @*<div>
+                    @Html.LabelFor(p=>p.depttable2.city.cityname)
+                    <div>@Html.EditorFor(p=>p.depttable2.city.cityname)</div>
+                </div>*@
+                <div>
+                    @Html.LabelFor(p=>p.depttable2.deptname)
+                    <div>@Html.DropDownList("deptid","deptname")</div>
+                </div>
+                <div>
+                    <input type="submit" value="update"/> 
+                </div>
+            }
+    </div>
+</body>
+</html>

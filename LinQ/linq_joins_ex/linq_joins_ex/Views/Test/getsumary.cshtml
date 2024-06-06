@@ -1,0 +1,30 @@
+﻿@model IEnumerable<linq_joins_ex.Models.empdept>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getsumary</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>@Html.DisplayNameFor(p => p.salary)</td>
+                <td>@Html.DisplayNameFor(p => p.cityname)</td>
+            </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(p => temp.salary)</td>
+                    <td>@Html.DisplayFor(p => temp.cityname)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

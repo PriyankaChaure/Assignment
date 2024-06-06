@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div style="background-color:lightcoral;">
+        <h2>******* Welcome To Marketing!!!!!! *********</h2>
+    </div>
+    <div style="background-color:peru;">
+        <a href="/MarketingArea/MarketingContro/MarketingIndex">Home</a>
+        <a href="/MarketingArea/MarketingContro/MarketingAbout">About</a>
+    </div>
+    <div style="background-color:lightgreen;">
+        @RenderBody()
+    </div>
+    <div style="background-color:aqua;">
+        &copy; All Rights Reserved To Marketing Area!!!
+    </div>
+</body>
+</html>

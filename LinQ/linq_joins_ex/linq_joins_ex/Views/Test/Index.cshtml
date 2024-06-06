@@ -1,0 +1,44 @@
+﻿@model IEnumerable<linq_joins_ex.Models.empdept>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>employee information</h2>
+        <table border="1">
+            <tr>
+                <td>@Html.DisplayNameFor(p => p.empid)</td>
+                <td>@Html.DisplayNameFor(p => p.empname)</td>
+                <td>@Html.DisplayNameFor(p => p.address)</td>
+                <td>@Html.DisplayNameFor(p => p.emailid)</td>
+                <td>@Html.DisplayNameFor(p => p.mobileno)</td>
+                <td>@Html.DisplayNameFor(p => p.salary)</td>
+                <td>@Html.DisplayNameFor(p => p.deptname)</td>
+                <td>@Html.DisplayNameFor(p => p.cityname)</td>
+            </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(p => temp.empid)</td>
+                    <td>@Html.DisplayFor(p => temp.empname)</td>
+                    <td>@Html.DisplayFor(p => temp.address)</td>
+                    <td>@Html.DisplayFor(p => temp.emailid)</td>
+                    <td>@Html.DisplayFor(p => temp.mobileno)</td>
+                    <td>@Html.DisplayFor(p => temp.salary)</td>
+                    <td>@Html.DisplayFor(p => temp.deptname)</td>
+                    <td>@Html.DisplayFor(p => temp.cityname)</td>
+                    
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

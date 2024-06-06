@@ -1,0 +1,120 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>View Bag</h2>
+        <table border="1">
+            <tr>
+                <td>
+                    Sr.No
+                </td>
+                <td>Property Name</td>
+                <td>Value</td>
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>courceid</td>
+                <td>@ViewBag.CourseId</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>courcename</td>
+                <td>@ViewBag.CourseName</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Duration</td>
+                <td>@ViewBag.Duration</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Fees</td>
+                <td>@ViewBag.Fees</td>
+            </tr>
+
+        </table>
+        <h2>Temp Data</h2>
+        <table border="1">
+            <tr>
+                <td>
+                    Sr.No
+                </td>
+                <td>Property Name</td>
+                <td>Value</td>
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>bookid</td>
+                <td>@TempData["BookId"]</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>bookname</td>
+                <td>@TempData["BookName"]</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>authorname</td>
+                <td>@TempData["AuthorName"]</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>price</td>
+                <td>@TempData["Price"]</td>
+            </tr>
+        </table>
+        
+        <h2>View Data</h2>
+        <table border="1" style="width:195px;" >
+            <tr >
+                <td>View Data Properties</td>
+            </tr>
+        </table>
+        <table border="1">
+           
+            <tr>
+                <td>
+                    Sr.No
+                </td>
+                <td>Property Name</td>
+                <td>Value</td>
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>deviceid</td>
+                <td>@ViewData["DeviceId"]</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>devicename</td>
+                <td>@ViewData["DeviceName"]</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>mfgname</td>
+                <td>@ViewData["MfgName"]</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>price</td>
+                <td>@ViewData["Price"]</td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Filters Example</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+//alert("welcome to jquery!!!");
+$(function()
+{
+//$("i").parent().css("background-color","pink");
+//$("i").parents().css("background-color","pink");
+//$("i").parents("div").css("background-color","pink");
+//$("i").parentsUntil("div").css("background-color","pink");
+
+//$("div").children().css("background-color","pink");
+//$("div").children("p").css("background-color","red");
+//$("div").children("p.intro").css("background-color","red");
+
+//$("div").find("span").css("background-color","ff1234");
+
+//$("#dv").next().css("background-color","ff1ff4");
+//$("#dv").nextAll().css("background-color","ff1ff4");
+//$("#dv").prev().css("background-color","ff1ff4");
+//$("#dv").prevAll().css("background-color","ff1ff4");
+
+//$("#dv").nextUntil("span").css("background-color","ff1ff4");
+$("#dv").prevUntil("span").css("background-color","ff1ff4");
+});
+</script>
+</heead>
+<body>
+<h1>first heading</h1>
+<span>this is 1st span</span>
+<p>content of first heading</p>
+<h1>second heading</h1>
+<p>content of second heading</p>
+<div id="dv">this is div called
+    <p class="intro">this is paragraph
+ 	<b >used for demo
+	   <i>for dom traversal</i>
+	</b>
+    </p>
+    <span>this is 3rd span</span>	
+</div>
+<span>this is 4th span</span>
+<h1>third heading</h1>
+</body>
+</html>

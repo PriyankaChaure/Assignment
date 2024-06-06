@@ -1,0 +1,8 @@
+﻿
+    <div> 
+        <h1>Marketingindex is called from marketingindex action of marketingcontro controller!!!!!!</h1>
+        @Html.ActionLink("go to marketing about","MarketingAbout","MarketingContro")<br/>
+        @Html.ActionLink("go to purchase", "PurchaseIndex", "purchaseContro",new {Area="PurchaseArea"},null)<br/>
+        @Html.ActionLink("go to sales", "SalesIndex", "SalesContro", new { Area = "SalesArea" },null)<br/>
+        @Html.ActionLink("go to test", "MainIndex", "Test", new {Area=""},null)<br/>
+    </div>

@@ -1,0 +1,17 @@
+﻿@model  Templated_Helpers.Models.customer
+@{
+    ViewBag.Title = "templatedhelpers";
+}
+
+
+<h2>templatedhelpers</h2>
+<div>
+    Customer Id:@Html.DisplayFor(p => p.customerid)<br />
+    Customer Name:@Html.DisplayFor(p => p.customername)<br />
+    Customer Name:@Html.EditorFor(p => p.customername)<br />
+    Customer Mobile No:@Html.DisplayFor(p => p.customermobileno)<br />
+    Customer Mobile No:@Html.EditorFor(p => p.customermobileno)<br />
+    IsActive:@Html.DisplayFor(p=>p.isactive)<br/>
+    IsActive:@Html.EditorFor(p=>p.isactive)<br/>
+</div>
+

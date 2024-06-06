@@ -1,0 +1,41 @@
+﻿@model View_Model_Ex.Models.CustEmpProVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Customer Information</h2>
+        Customer Id:@Model.customerid<br />
+        Customer Name:@Model.customername <br />
+        Customer Email Id:@Model.customeremailid <br />
+        Customer Address:@Model.customeraddress <br />
+        Customer Mobile No:@Model.customermobileno <br />
+        Customer Credit Limit:@Model.customercreditlimit <br />
+        <hr />
+        <h2>Employee Information</h2>
+        Employee Id:@Model.employeeid<br />
+        Employee Name:@Model.employeename <br />
+        Employee Dept Name:@Model.employeedeptname <br />
+        Employee Email Id:@Model.employeeemailid <br />
+        Employee Address:@Model.employeeaddress <br />
+        Employee Mobile No:@Model.employeemobileno <br />
+        Employee salary:@Model.employeesalary <br />
+        <hr />
+        <h2>Product Information</h2>
+        Product Id:@Model.productid <br />
+        Product Name:@Model.productname <br />
+        Product MFG Name:@Model.productmfgname <br />
+        Product Price:@Model.productprice <br />
+        <hr />
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "standardhelper";
+}
+
+<h2>standardhelper</h2>
+<div>
+    @{
+        List<SelectListItem> lst = new List<SelectListItem>();
+        lst.Add(new SelectListItem() { Text = "Pune", Value = "1" });
+        lst.Add(new SelectListItem() { Text = "Mumbai", Value = "2" });
+        lst.Add(new SelectListItem() { Text = "Noida", Value = "3" });
+        lst.Add(new SelectListItem() { Text = "Delhi", Value = "4" });
+        lst.Add(new SelectListItem() { Text = "Chennai", Value = "5" });
+        lst.Add(new SelectListItem() { Text = "Hydeabad", Value = "6" });
+        lst.Add(new SelectListItem() { Text = "Telangana", Value = "7" });
+    }
+    Enter Namwe:@Html.TextBox("empname", "priyanka")<br />
+    Address:@Html.TextArea("address", "pune", 5, 15, null)<br />
+    Address:@Html.TextArea("add", "nigdi", 2, 10, new { size = 50, style = "background-color:yellow;" })<br />
+    Password:@Html.Password("pass", "str")<br />
+    Hidden:@Html.Hidden("hd", "priyanka@gmail.com")<br />
+    Radio Button:@Html.RadioButton("rb", 1) Reading
+    @Html.RadioButton("rb", 2) Listning
+    @Html.RadioButton("rb", 3) Watching
+    @Html.RadioButton("rb", 4) Travelling<br />
+    Check Box:@Html.CheckBox("program") c#
+    @Html.CheckBox("Program") c#
+    @Html.CheckBox("Database") mysql
+    @Html.CheckBox("webtech") .net
+    @Html.CheckBox("program") vb#<br />
+    dropdown List<br />
+    select city:@Html.DropDownList("city", lst)<br />
+    JS Framework:@Html.DropDownList("js", new SelectList(new string[] { "abc", "def", "ghi", "jkl", "mno", "pqr" }), "framework")<br />
+    ListBox <br />
+    Select City:@Html.ListBox("city", lst)<br />
+    select DB:@Html.ListBox("DB", new MultiSelectList(new string[] { "DB1", "DB2", "DB3", "DB4", "DB5", "DB6", "DB7" }))<br />
+    Action Link:@Html.ActionLink("go to index page", "index")<br />
+    Action Link:@Html.ActionLink("go to index page of home", "index","home")<br />
+
+</div>
+

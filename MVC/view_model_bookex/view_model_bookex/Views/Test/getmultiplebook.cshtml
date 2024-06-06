@@ -1,0 +1,36 @@
+﻿@model IEnumerable<view_model_bookex.Models.book>
+   @{  
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getmultiplebook</title>
+</head>
+<body>
+    <div> 
+        <table border="1">
+            <tr>
+                <td>Book Id</td>
+                <td>Book Name</td>
+                <td>Author Name</td>
+                <td>Book Price</td>
+                </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@temp.bookid</td>
+                    <td>@temp.bookname</td>
+                    <td>@temp.authorname</td>
+                    <td>@temp.price</td>
+                    </tr>
+
+            }
+            </table>
+
+    </div>
+</body>
+</html>

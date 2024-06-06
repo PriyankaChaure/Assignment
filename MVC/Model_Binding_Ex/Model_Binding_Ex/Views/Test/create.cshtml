@@ -1,0 +1,35 @@
+﻿@model  Model_Binding_Ex.Models.Customer
+@{
+    ViewBag.Title = "create";
+}>
+@*<div>
+    <h2>Customer Information</h2>
+    <form method="post" action="/Test/create">
+        Customer Name=<input type="text" name="CustomerName"/><br/>
+        Customer Address=<textarea name="Customeraddress"></textarea><br/>
+        Customer Email Id=<input type="text" name="CustomerEmailId"/><br/>
+        Customer Mobile No=<input type="text" name="CustomerMobileNo"/><br/>
+        Customer Credit Limit=<input type="text" name="CustomerCreditLimit"><br/>
+        <input type="submit" value="SAVE"/><br/>
+     </form>
+</div>*@
+<div>
+    <h2>Customer Information</h2>
+    @using(Html.BeginForm())
+            {
+                @Html.LabelFor(p=>p.CustomerName)
+                @Html.EditorFor(p=>p.CustomerName)<br/>
+                @Html.Label("CustomerAddress")
+                @Html.TextArea("CustomerAddress")<br/>
+                @Html.Label("CustomerEmailId")
+                @Html.TextAreaFor(p=>p.CustomerEmailId)<br/>
+                <label>CustomerMobileNo</label>
+                <input type="text" name="CustomerMobileNo"/><br/>
+                @Html.LabelFor(p=>p.CustomerCreditLimit)
+                @Html.EditorFor(p=>p.CustomerCreditLimit)<br/>
+                <input type="submit" value="save">
+            }
+</div>
+
+
+

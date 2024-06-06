@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PriyankaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="billid" />
+    </Key>
+    <Property Name="billid" Type="Int64" Nullable="false" />
+    <Property Name="billdate" Type="DateTime" Precision="3" />
+    <Property Name="billamt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="custid" Type="Int64" />
+    <NavigationProperty Name="custtable" Relationship="Self.FK__bill__custid__08B54D69" FromRole="bill" ToRole="custtable" />
+    <NavigationProperty Name="payments" Relationship="Self.FK__payment__billid__17036CC0" FromRole="bill" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="custtable">
+    <Key>
+      <PropertyRef Name="custid" />
+    </Key>
+    <Property Name="custid" Type="Int64" Nullable="false" />
+    <Property Name="custname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobileno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bills" Relationship="Self.FK__bill__custid__08B54D69" FromRole="custtable" ToRole="bill" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int64" Nullable="false" />
+    <Property Name="paydate" Type="DateTime" Precision="3" />
+    <Property Name="payamout" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="billid" Type="Int64" />
+    <NavigationProperty Name="bill" Relationship="Self.FK__payment__billid__17036CC0" FromRole="payment" ToRole="bill" />
+  </EntityType>
+  <Association Name="FK__bill__custid__08B54D69">
+    <End Role="custtable" Type="Self.custtable" Multiplicity="0..1" />
+    <End Role="bill" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="custtable">
+        <PropertyRef Name="custid" />
+      </Principal>
+      <Dependent Role="bill">
+        <PropertyRef Name="custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__payment__billid__17036CC0">
+    <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="billid" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="billid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PriyankaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bills" EntityType="Self.bill" />
+    <EntitySet Name="custtables" EntityType="Self.custtable" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <AssociationSet Name="FK__bill__custid__08B54D69" Association="Self.FK__bill__custid__08B54D69">
+      <End Role="custtable" EntitySet="custtables" />
+      <End Role="bill" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment__billid__17036CC0" Association="Self.FK__payment__billid__17036CC0">
+      <End Role="bill" EntitySet="bills" />
+      <End Role="payment" EntitySet="payments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

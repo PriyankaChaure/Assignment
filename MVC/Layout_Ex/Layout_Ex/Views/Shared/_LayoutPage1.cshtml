@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <table border="1" style="width:50%;">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="background-color:purple;">
+                                <img style="height:60px;width:150px;" src="~/Content/priyaimage.png">
+                                </td>
+                            <td style="background-color:rosybrown;color:blue;">
+                                <h1>Priyanka</h1>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td  style="background-color:yellowgreen;color:blue;">
+                                <table >
+                                    <tr >
+                                        <td >
+                                            <a href="/Test/Index">home</a>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                        <td >
+                                            <a href="/Test/blog">blog</a>
+                                        </td>
+                                        </tr>
+                                    <tr>
+                                        <td >
+                                            <a href="/Test/signup">sign up</a>
+                                        </td>
+                                        </tr>
+                                    <tr>
+                                        <td >
+                                            <a href="/Test/signin"> sign in</a>
+                                        </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            <td style="background-color:cornflowerblue;color:red;">
+                                @RenderBody()
+                                </td>
+                            </tr>
+                        <tr>
+                            <td style="background-color:powderblue;color:peru;">
+                                &copy; all rights to priyanka!!!
+                                </td>
+                            <td style="background-color:turquoise;">
+                                <img style="height:60px;width:150px;" src="~/Content/priyaimage.png">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+       
+    </div>
+</body>
+</html>

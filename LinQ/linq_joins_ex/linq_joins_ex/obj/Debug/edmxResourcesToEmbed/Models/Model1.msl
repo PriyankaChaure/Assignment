@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PriyankaDBModelStoreContainer" CdmEntityContainer="PriyankaDBEntities">
+    <EntitySetMapping Name="emps">
+      <EntityTypeMapping TypeName="PriyankaDBModel.emp">
+        <MappingFragment StoreEntitySet="emp">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="PriyankaDBModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="cityname" ColumnName="cityname" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="depttable2">
+      <EntityTypeMapping TypeName="PriyankaDBModel.depttable2">
+        <MappingFragment StoreEntitySet="depttable2">
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="deptname" ColumnName="deptname" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emp2">
+      <EntityTypeMapping TypeName="PriyankaDBModel.emp2">
+        <MappingFragment StoreEntitySet="emp2">
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="atables">
+      <EntityTypeMapping TypeName="PriyankaDBModel.atable">
+        <MappingFragment StoreEntitySet="atable">
+          <ScalarProperty Name="avalue" ColumnName="avalue" />
+          <ScalarProperty Name="aid" ColumnName="aid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="btables">
+      <EntityTypeMapping TypeName="PriyankaDBModel.btable">
+        <MappingFragment StoreEntitySet="btable">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="bvalue" ColumnName="bvalue" />
+          <ScalarProperty Name="bid" ColumnName="bid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MainIndex</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Go To Index","Index","Home")<br/>
+        @Html.ActionLink("Go To Marketing", "MarketingIndex", "MarketingContro", new {a=10,b=20,id="marketing",Area="MarketingArea"},null)<br/>
+        @Html.ActionLink("Go To Purchase", "PurchaseIndex", "PurchaseContro", new {Area="PurchaseArea"},null)<br/>
+        @Html.ActionLink("Go To Sales", "SalesIndex", "SalesContro", new {Area="SalesArea"},null)<br/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>class ID Tag Selector Example</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+//alert("welcome to jquery!!!");
+$(function()
+{
+//$(".head").css("background-color","lightgreen");//single class apply
+//$(".content").css("background-color","0005f5");
+//$(".head,.content").css("background-color","ff05f5");//multiple class apply
+//$("#xyz").css("background-color","lightgray");//single id apply
+//$("#pqr").css("background-color","lightblue");
+//$("#pqr,#xyz").css("background-color","lime");//multiple id apply
+$("#pqr,.head,span").css("background-color","yellow");//class,id,tag apply together
+});
+</script>
+</heead>
+<body>
+<h1 class="head">this is first heading</h1>
+<p class="content">content of first heading</p>
+<h1 class="content">this is second heading</h1>
+<p class="head">content of second heading</p>
+<h1 id="xyz">this is third heading</h1>
+<p>content of third heading</p>
+<h1 id="pqr">this is fourth heading</h1>
+<p>content of fourth heading</p>
+<h1>this is fifth heading</h1>
+<p>content of fifth heading</p>
+<h1>this is sixth heading</h1>
+<p>content of sixth heading</p>
+<span>this is span called!!!</span>
+</body>
+</html>

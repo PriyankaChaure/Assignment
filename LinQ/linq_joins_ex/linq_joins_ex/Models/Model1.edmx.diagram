@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="26818c289a0e4b09bb39f31e62dc9ef6" Name="Diagram1">
+        <EntityTypeShape EntityType="PriyankaDBModel.emp" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PriyankaDBModel.city" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="PriyankaDBModel.depttable2" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="PriyankaDBModel.emp2" Width="1.5" PointX="5.25" PointY="5" />
+        <AssociationConnector Association="PriyankaDBModel.FK__depttable__cityi__59C55456" />
+        <AssociationConnector Association="PriyankaDBModel.FK__emp2__deptid__5F7E2DAC" />
+        <EntityTypeShape EntityType="PriyankaDBModel.atable" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PriyankaDBModel.btable" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

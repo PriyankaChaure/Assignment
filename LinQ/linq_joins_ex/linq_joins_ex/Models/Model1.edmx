@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PriyankaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="atable">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="bigint" Nullable="false" />
+          <Property Name="avalue" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="btable">
+          <Key>
+            <PropertyRef Name="bid" />
+          </Key>
+          <Property Name="bid" Type="bigint" Nullable="false" />
+          <Property Name="bvalue" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="aid" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityname" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="depttable2">
+          <Key>
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="deptid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deptname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cityid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="emailid" Type="varchar" MaxLength="40" />
+          <Property Name="mobileno" Type="varchar" MaxLength="20" />
+          <Property Name="salary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="deptid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="emailid" Type="varchar" MaxLength="40" />
+          <Property Name="mobileno" Type="varchar" MaxLength="20" />
+          <Property Name="salary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="deptid" Type="bigint" />
+        </EntityType>
+        <Association Name="FK__depttable__cityi__59C55456">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="depttable2" Type="Self.depttable2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="cityid" />
+            </Principal>
+            <Dependent Role="depttable2">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__emp2__deptid__5F7E2DAC">
+          <End Role="depttable2" Type="Self.depttable2" Multiplicity="0..1" />
+          <End Role="emp2" Type="Self.emp2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depttable2">
+              <PropertyRef Name="deptid" />
+            </Principal>
+            <Dependent Role="emp2">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PriyankaDBModelStoreContainer">
+          <EntitySet Name="atable" EntityType="Self.atable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="btable" EntityType="Self.btable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="depttable2" EntityType="Self.depttable2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp" EntityType="Self.emp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp2" EntityType="Self.emp2" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__depttable__cityi__59C55456" Association="Self.FK__depttable__cityi__59C55456">
+            <End Role="city" EntitySet="city" />
+            <End Role="depttable2" EntitySet="depttable2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__emp2__deptid__5F7E2DAC" Association="Self.FK__emp2__deptid__5F7E2DAC">
+            <End Role="depttable2" EntitySet="depttable2" />
+            <End Role="emp2" EntitySet="emp2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PriyankaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emailid" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="deptid" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="PriyankaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="emps" EntityType="Self.emp" />
+          <EntitySet Name="cities" EntityType="PriyankaDBModel.city" />
+          <EntitySet Name="depttable2" EntityType="PriyankaDBModel.depttable2" />
+          <EntitySet Name="emp2" EntityType="PriyankaDBModel.emp2" />
+          <AssociationSet Name="FK__depttable__cityi__59C55456" Association="PriyankaDBModel.FK__depttable__cityi__59C55456">
+            <End Role="city" EntitySet="cities" />
+            <End Role="depttable2" EntitySet="depttable2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__emp2__deptid__5F7E2DAC" Association="PriyankaDBModel.FK__emp2__deptid__5F7E2DAC">
+            <End Role="depttable2" EntitySet="depttable2" />
+            <End Role="emp2" EntitySet="emp2" />
+          </AssociationSet>
+          <EntitySet Name="atables" EntityType="PriyankaDBModel.atable" />
+          <EntitySet Name="btables" EntityType="PriyankaDBModel.btable" />
+        </EntityContainer>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="depttable2" Relationship="PriyankaDBModel.FK__depttable__cityi__59C55456" FromRole="city" ToRole="depttable2" />
+        </EntityType>
+        <EntityType Name="depttable2">
+          <Key>
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="deptid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deptname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cityid" Type="Int64" />
+          <NavigationProperty Name="city" Relationship="PriyankaDBModel.FK__depttable__cityi__59C55456" FromRole="depttable2" ToRole="city" />
+          <NavigationProperty Name="emp2" Relationship="PriyankaDBModel.FK__emp2__deptid__5F7E2DAC" FromRole="depttable2" ToRole="emp2" />
+        </EntityType>
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emailid" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="deptid" Type="Int64" />
+          <NavigationProperty Name="depttable2" Relationship="PriyankaDBModel.FK__emp2__deptid__5F7E2DAC" FromRole="emp2" ToRole="depttable2" />
+        </EntityType>
+        <Association Name="FK__depttable__cityi__59C55456">
+          <End Type="PriyankaDBModel.city" Role="city" Multiplicity="0..1" />
+          <End Type="PriyankaDBModel.depttable2" Role="depttable2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="cityid" />
+            </Principal>
+            <Dependent Role="depttable2">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__emp2__deptid__5F7E2DAC">
+          <End Type="PriyankaDBModel.depttable2" Role="depttable2" Multiplicity="0..1" />
+          <End Type="PriyankaDBModel.emp2" Role="emp2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depttable2">
+              <PropertyRef Name="deptid" />
+            </Principal>
+            <Dependent Role="emp2">
+              <PropertyRef Name="deptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="atable">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int64" Nullable="false" />
+          <Property Name="avalue" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="btable">
+          <Key>
+            <PropertyRef Name="bid" />
+          </Key>
+          <Property Name="bid" Type="Int64" Nullable="false" />
+          <Property Name="bvalue" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="aid" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PriyankaDBModelStoreContainer" CdmEntityContainer="PriyankaDBEntities">
+          <EntitySetMapping Name="emps">
+            <EntityTypeMapping TypeName="PriyankaDBModel.emp">
+              <MappingFragment StoreEntitySet="emp">
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="empname" ColumnName="empname" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="PriyankaDBModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="depttable2">
+            <EntityTypeMapping TypeName="PriyankaDBModel.depttable2">
+              <MappingFragment StoreEntitySet="depttable2">
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="deptname" ColumnName="deptname" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp2">
+            <EntityTypeMapping TypeName="PriyankaDBModel.emp2">
+              <MappingFragment StoreEntitySet="emp2">
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="empname" ColumnName="empname" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="atables">
+            <EntityTypeMapping TypeName="PriyankaDBModel.atable">
+              <MappingFragment StoreEntitySet="atable">
+                <ScalarProperty Name="avalue" ColumnName="avalue" />
+                <ScalarProperty Name="aid" ColumnName="aid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="btables">
+            <EntityTypeMapping TypeName="PriyankaDBModel.btable">
+              <MappingFragment StoreEntitySet="btable">
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="bvalue" ColumnName="bvalue" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

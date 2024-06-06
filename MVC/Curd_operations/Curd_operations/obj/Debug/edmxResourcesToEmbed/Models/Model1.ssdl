@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PriyankaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="cityid" />
+    </Key>
+    <Property Name="cityid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cityname" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="depttable2">
+    <Key>
+      <PropertyRef Name="deptid" />
+    </Key>
+    <Property Name="deptid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deptname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cityid" Type="bigint" />
+  </EntityType>
+  <EntityType Name="emp2">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="address" Type="varchar(max)" />
+    <Property Name="emailid" Type="varchar" MaxLength="40" />
+    <Property Name="mobileno" Type="varchar" MaxLength="20" />
+    <Property Name="salary" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="deptid" Type="bigint" />
+  </EntityType>
+  <Association Name="FK__depttable__cityi__59C55456">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="depttable2" Type="Self.depttable2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="cityid" />
+      </Principal>
+      <Dependent Role="depttable2">
+        <PropertyRef Name="cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__emp2__deptid__5F7E2DAC">
+    <End Role="depttable2" Type="Self.depttable2" Multiplicity="0..1" />
+    <End Role="emp2" Type="Self.emp2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="depttable2">
+        <PropertyRef Name="deptid" />
+      </Principal>
+      <Dependent Role="emp2">
+        <PropertyRef Name="deptid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PriyankaDBModelStoreContainer">
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="depttable2" EntityType="Self.depttable2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emp2" EntityType="Self.emp2" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__depttable__cityi__59C55456" Association="Self.FK__depttable__cityi__59C55456">
+      <End Role="city" EntitySet="city" />
+      <End Role="depttable2" EntitySet="depttable2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__emp2__deptid__5F7E2DAC" Association="Self.FK__emp2__deptid__5F7E2DAC">
+      <End Role="depttable2" EntitySet="depttable2" />
+      <End Role="emp2" EntitySet="emp2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

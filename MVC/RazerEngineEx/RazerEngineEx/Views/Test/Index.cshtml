@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> @* this is comment   *@
+    Date Time:@DateTime.Now<br/>
+    @{ 
+        int a, b, c;
+        a = 10;
+        b = 21;
+        c = a + b;
+    }
+    value of c is:@c<br/>
+    @if(c%2==0)
+            {
+                @:c is even;
+            }
+else
+            {
+                <text> c is odd</text>
+            }
+    @for(int i=0;i<5;i++)
+            {
+                <h2> value of i is:@i</h2>
+            }
+    @{
+        List <string> lst = new List<string>();
+        
+        lst.Add("c#");
+        lst.Add("Anguler");
+        lst.Add("vb");
+        lst.Add("java");
+        lst.Add("c++");
+        }
+    <ol type="I">
+        @foreach(var temp in lst)
+            {
+                <li>@temp</li>
+            }
+        </ol>
+        
+    </div>
+</body>
+</html>

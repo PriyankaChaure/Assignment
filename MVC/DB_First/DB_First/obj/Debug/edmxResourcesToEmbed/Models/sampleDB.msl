@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PriyankaDBModelStoreContainer" CdmEntityContainer="PriyankaDBEntities">
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="PriyankaDBModel.bill">
+        <MappingFragment StoreEntitySet="bill">
+          <ScalarProperty Name="billid" ColumnName="billid" />
+          <ScalarProperty Name="billdate" ColumnName="billdate" />
+          <ScalarProperty Name="billamt" ColumnName="billamt" />
+          <ScalarProperty Name="custid" ColumnName="custid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="PriyankaDBModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="payid" ColumnName="payid" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="payamout" ColumnName="payamout" />
+          <ScalarProperty Name="billid" ColumnName="billid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

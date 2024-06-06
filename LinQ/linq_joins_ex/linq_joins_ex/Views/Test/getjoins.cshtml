@@ -1,0 +1,35 @@
+﻿@model IEnumerable<linq_joins_ex.Models.abclassVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getjoins</title>
+</head>
+<body>
+    <div> 
+        <h2>Information Display On Joins</h2>
+        <table border="1">
+            <tr>
+                <td>@Html.DisplayNameFor(p => p.aid)</td>
+                <td>@Html.DisplayNameFor(p => p.avalue)</td>
+                <td>@Html.DisplayNameFor(p => p.bid)</td>
+                <td>@Html.DisplayNameFor(p => p.bvalue)</td>
+            </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(p => temp.aid)</td>
+                    <td>@Html.DisplayFor(p => temp.avalue)</td>
+                    <td>@Html.DisplayFor(p => temp.bid)</td>
+                    <td>@Html.DisplayFor(p => temp.bvalue)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

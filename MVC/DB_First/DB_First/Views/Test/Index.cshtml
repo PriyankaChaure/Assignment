@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DB_First.Models.bill> 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Bill Informatio</h2>
+        <table border="1">
+            <tr>
+                <td>Bill Id</td>
+                <td>Bill Date</td>
+                <td>Bill Amount</td>
+                <td>Customer Id</td>
+                
+            </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@temp.billid</td>
+                    <td>@temp.billdate</td>
+                    <td>@temp.billamt</td>
+                    <td>@temp.custid</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

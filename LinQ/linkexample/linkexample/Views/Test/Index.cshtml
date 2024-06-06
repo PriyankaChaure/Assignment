@@ -1,0 +1,38 @@
+﻿@model IEnumerable<linkexample.Models.custbillVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table border="1">
+            <tr>
+                <td>@Html.DisplayNameFor(p=>p.billid)</td>
+                <td>@Html.DisplayNameFor(p=>p.billdate)</td>
+                <td>@Html.DisplayNameFor(p=>p.billamt)</td>
+                <td>@Html.DisplayNameFor(p=>p.custname)</td>
+                <td>@Html.DisplayNameFor(p=>p.payid)</td>
+                <td>@Html.DisplayNameFor(p=>p.payamout)</td>
+            </tr>
+            @foreach(var temp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(p=>temp.billid)</td>
+                    <td>@Html.DisplayFor(p=>temp.billdate)</td>
+                    <td>@Html.DisplayFor(p=>temp.billamt)</td>
+                    <td>@Html.DisplayFor(p=>temp.custname)</td>
+                    <td>@Html.DisplayFor(p=>temp.payid)</td>
+                    <td>@Html.DisplayFor(p=>temp.payamout)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

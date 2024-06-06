@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PriyankaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bill">
+          <Key>
+            <PropertyRef Name="billid" />
+          </Key>
+          <Property Name="billid" Type="bigint" Nullable="false" />
+          <Property Name="billdate" Type="datetime" />
+          <Property Name="billamt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="custid" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PriyankaDB.dbo.customer' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="customer">
+          <Property Name="customerId" Type="bigint" />
+          <Property Name="customerName" Type="varchar" MaxLength="100" />
+          <Property Name="customerAddress" Type="varchar(max)" />
+          <Property Name="emailId" Type="varchar" MaxLength="40" />
+          <Property Name="mobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="creditLimit" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="bigint" Nullable="false" />
+          <Property Name="paydate" Type="datetime" />
+          <Property Name="payamout" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="billid" Type="bigint" />
+        </EntityType>
+        <Association Name="FK__payment__billid__17036CC0">
+          <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bill">
+              <PropertyRef Name="billid" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="billid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PriyankaDBModelStoreContainer">
+          <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__payment__billid__17036CC0" Association="Self.FK__payment__billid__17036CC0">
+            <End Role="bill" EntitySet="bill" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PriyankaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bill">
+          <Key>
+            <PropertyRef Name="billid" />
+          </Key>
+          <Property Name="billid" Type="Int64" Nullable="false" />
+          <Property Name="billdate" Type="DateTime" Precision="3" />
+          <Property Name="billamt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="custid" Type="Int64" />
+          <NavigationProperty Name="payments" Relationship="Self.FK__payment__billid__17036CC0" FromRole="bill" ToRole="payment" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="Int64" Nullable="false" />
+          <Property Name="paydate" Type="DateTime" Precision="3" />
+          <Property Name="payamout" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="billid" Type="Int64" />
+          <NavigationProperty Name="bill" Relationship="Self.FK__payment__billid__17036CC0" FromRole="payment" ToRole="bill" />
+        </EntityType>
+        <Association Name="FK__payment__billid__17036CC0">
+          <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bill">
+              <PropertyRef Name="billid" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="billid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PriyankaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bills" EntityType="Self.bill" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <AssociationSet Name="FK__payment__billid__17036CC0" Association="Self.FK__payment__billid__17036CC0">
+            <End Role="bill" EntitySet="bills" />
+            <End Role="payment" EntitySet="payments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PriyankaDBModelStoreContainer" CdmEntityContainer="PriyankaDBEntities">
+          <EntitySetMapping Name="bills">
+            <EntityTypeMapping TypeName="PriyankaDBModel.bill">
+              <MappingFragment StoreEntitySet="bill">
+                <ScalarProperty Name="billid" ColumnName="billid" />
+                <ScalarProperty Name="billdate" ColumnName="billdate" />
+                <ScalarProperty Name="billamt" ColumnName="billamt" />
+                <ScalarProperty Name="custid" ColumnName="custid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="PriyankaDBModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="payid" ColumnName="payid" />
+                <ScalarProperty Name="paydate" ColumnName="paydate" />
+                <ScalarProperty Name="payamout" ColumnName="payamout" />
+                <ScalarProperty Name="billid" ColumnName="billid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

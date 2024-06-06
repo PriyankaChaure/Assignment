@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PriyankaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="billid" />
+    </Key>
+    <Property Name="billid" Type="Int64" Nullable="false" />
+    <Property Name="billdate" Type="DateTime" Precision="3" />
+    <Property Name="billamt" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="custid" Type="Int64" />
+    <NavigationProperty Name="payments" Relationship="Self.FK__payment__billid__17036CC0" FromRole="bill" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int64" Nullable="false" />
+    <Property Name="paydate" Type="DateTime" Precision="3" />
+    <Property Name="payamout" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="billid" Type="Int64" />
+    <NavigationProperty Name="bill" Relationship="Self.FK__payment__billid__17036CC0" FromRole="payment" ToRole="bill" />
+  </EntityType>
+  <Association Name="FK__payment__billid__17036CC0">
+    <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="billid" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="billid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PriyankaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bills" EntityType="Self.bill" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <AssociationSet Name="FK__payment__billid__17036CC0" Association="Self.FK__payment__billid__17036CC0">
+      <End Role="bill" EntitySet="bills" />
+      <End Role="payment" EntitySet="payments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
